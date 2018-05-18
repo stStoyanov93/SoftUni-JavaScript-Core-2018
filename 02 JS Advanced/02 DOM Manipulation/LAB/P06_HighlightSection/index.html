@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="focus.css" />
+</head>
+<body onload="focus()">
+	<div>
+		<div>
+			<h1>Section 1</h1>
+			<input type="text"/>
+		</div>
+		<div>
+			<h1>Section 2</h1>
+			<input type="text"/></div>
+		<div>
+			<h1>Section 3</h1>
+			<input type="text"/></div>
+		<div>
+			<h1>Section 4</h1>
+			<input type="text"/></div>
+	</div>
+
+<script>
+    function focus() {
+        let inputElements = document.getElementsByTagName('input');
+
+        for (let input of inputElements) {
+			input.addEventListener('focus', addHighlight);
+            input.addEventListener('blur', removeHighlight);
+        }
+
+        function addHighlight(event) {
+			this.parentNode.className = 'focused';
+        }
+
+        function removeHighlight(event) {
+			this.parentNode.removeAttribute('class');
+        }
+    }
+</script>
+</body>
+</html>
