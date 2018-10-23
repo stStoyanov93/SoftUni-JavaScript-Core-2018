@@ -40,7 +40,7 @@ function atmMachine(data){
 
                 atmBanknotes.splice(i, 1, 0);
 
-                if (amount <= 0) {
+                if (amount == 0) {
                     break;
                 }
             }
@@ -57,6 +57,7 @@ function atmMachine(data){
         
     }
 }
+
 
 atmMachine([[20, 5, 100, 20, 1],
     [457, 25],

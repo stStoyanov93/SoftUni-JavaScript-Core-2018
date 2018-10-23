@@ -1,9 +1,10 @@
 function coffee(data){
     let brands = new Map();
+
     for (let line of data){
         let splittedLine = line.split(/, /);
 
-        let [command, brandName, coffeeType, expDate, count] = splittedLine;
+        const [command, brandName, coffeeType, expDate, count] = splittedLine;
 
         if (command == "IN"){
 

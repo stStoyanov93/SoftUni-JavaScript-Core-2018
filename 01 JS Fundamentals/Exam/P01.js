@@ -1,6 +1,10 @@
-//P01
 function coffeeMachine(inputArr){
     let totalIncome = 0;
+    const milkPrice = 0.1;
+    const sugarPrice = 0.1;
+    const caffeinePrice = 0.8;
+    const decafPrice = 0.9;
+    const teaPrice = 0.8;
 
     for (let line of inputArr){
         let splittedLine = line.split(/, /g);
@@ -9,32 +13,32 @@ function coffeeMachine(inputArr){
         let price = 0;
 
         if (type == 'coffee'){
-            let coffeePrice = splittedLine[2] == 'caffeine' ? 0.8 : 0.9
+            let coffeePrice = splittedLine[2] == 'caffeine' ? caffeinePrice : decafPrice
             price += coffeePrice;
 
             if (splittedLine[3] == 'milk'){
-                price += 0.1
+                price += milkPrice;
 
-                if (+(splittedLine[4])){
-                    price += 0.1;
+                if (+(splittedLine[4])){ 
+                    price += sugarPrice;
                 }
             }
             else if (+(splittedLine[3])){
-                price += 0.1;
+                price += sugarPrice;
             }
         }
         else {
-            price += 0.8;
+            price += teaPrice;
 
             if (splittedLine[2] == 'milk'){
-                price += 0.1
+                price += milkPrice;
 
                 if (+(splittedLine[3])){
-                    price += 0.1;
+                    price += sugarPrice;
                 }
             }
             else if (+(splittedLine[2])){
-                price += 0.1;
+                price += sugarPrice;
             }
         }
 
@@ -57,11 +61,3 @@ function coffeeMachine(inputArr){
 coffeeMachine(['8.00, coffee, decaf, 4',
 '1.00, tea, 2']
 )
-
-
-
-//P02
-
-//P03
-
-//P04
